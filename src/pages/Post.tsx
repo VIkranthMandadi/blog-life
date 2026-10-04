@@ -1,7 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { getPost } from '../lib/posts'
-import Comments from '../components/Comments'
 
 export default function Post() {
   const { slug } = useParams<{ slug: string }>()
@@ -24,7 +23,6 @@ export default function Post() {
       <div className="prose mt-6 max-w-none dark:prose-invert">
         <ReactMarkdown>{post.content}</ReactMarkdown>
       </div>
-      <Comments postSlug={slug} />
     </article>
   )
 }
