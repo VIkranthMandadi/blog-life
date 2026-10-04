@@ -12,26 +12,6 @@ interface CommentsProps {
   postSlug: string
 }
 
-// Default seed comments for initial engagement
-const DEFAULT_COMMENTS: Record<string, Comment[]> = {
-  'second-post': [
-    {
-      id: 'seed-1',
-      author: 'Vikranth',
-      content: 'Pickleball and piano on the same day is elite! Good vibes 🙌',
-      createdAt: 'Oct 3, 2026'
-    }
-  ],
-  'first-post': [
-    {
-      id: 'seed-0',
-      author: 'Shyam',
-      content: 'Hyped for this blog! Toodalloo 🚀',
-      createdAt: 'Oct 3, 2026'
-    }
-  ]
-}
-
 export default function Comments({ postSlug }: CommentsProps) {
   const [isOpen, setIsOpen] = useState(true)
   const [comments, setComments] = useState<Comment[]>([])
@@ -47,14 +27,18 @@ export default function Comments({ postSlug }: CommentsProps) {
     try {
       const stored = localStorage.getItem(storageKey)
       if (stored) {
-        setComments(JSON.parse(stored))
+        const parsed: Comment[] = JSON.parse(stored)
+        // Strip out any legacy seed comments
+        const realComments = parsed.filter((c) => !c.id.startsWith('seed-'))
+        setComments(realComments)
+        if (realComments.length !== parsed.length) {
+          localStorage.setItem(storageKey, JSON.stringify(realComments))
+        }
       } else {
-        const defaults = DEFAULT_COMMENTS[postSlug] || []
-        setComments(defaults)
-        localStorage.setItem(storageKey, JSON.stringify(defaults))
+        setComments([])
       }
     } catch {
-      setComments(DEFAULT_COMMENTS[postSlug] || [])
+      setComments([])
     }
   }, [postSlug, storageKey])
 
