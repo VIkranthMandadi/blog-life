@@ -4,3 +4,13 @@
 @theme {
   --color-accent: #2563eb;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-accent: #60a5fa;
+  }
+}
+
+body {
+  @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100;
+}

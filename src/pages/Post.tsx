@@ -19,8 +19,8 @@ export default function Post() {
     <article>
       <Link to="/" className="text-sm text-accent hover:underline">← Back</Link>
       <h1 className="mt-2 text-3xl font-bold">{post.title}</h1>
-      {post.date && <p className="mt-1 text-sm text-gray-500">{post.date}</p>}
-      <div className="prose mt-6 max-w-none">
+      {post.date && <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{post.date}</p>}
+      <div className="prose mt-6 max-w-none dark:prose-invert">
         <ReactMarkdown>{post.content}</ReactMarkdown>
       </div>
     </article>

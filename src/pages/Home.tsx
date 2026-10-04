@@ -9,7 +9,7 @@ export default function Home() {
           <Link to={`/post/${post.slug}`} className="text-xl font-semibold text-accent hover:underline">
             {post.title}
           </Link>
-          {post.date && <p className="text-sm text-gray-500">{post.date}</p>}
+          {post.date && <p className="text-sm text-gray-500 dark:text-gray-400">{post.date}</p>}
         </li>
       ))}
     </ul>
