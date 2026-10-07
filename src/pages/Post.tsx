@@ -6,7 +6,7 @@ export default function Post() {
   const { slug } = useParams<{ slug: string }>()
   const post = slug ? getPost(slug) : undefined
 
-  if (!post) {
+  if (!post || !slug) {
     return (
       <div>
         <p>Post not found.</p>
