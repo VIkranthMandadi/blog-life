@@ -9,11 +9,6 @@ export default function Header() {
         </Link>
         <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">by the steppas</p>
       </div>
-      <nav className="text-sm text-gray-500 dark:text-gray-400">
-        <a href="https://github.com/VIkranthMandadi/blog-life" className="hover:text-accent" target="_blank" rel="noreferrer">
-          GitHub
-        </a>
-      </nav>
     </header>
   )
 }
