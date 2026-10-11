@@ -16,7 +16,7 @@ export default function Post() {
   }
 
   return (
-    <article>
+    <article className="mx-auto max-w-2xl">
       <Link to="/" className="text-sm text-accent hover:underline">← Back</Link>
       <h1 className="mt-2 text-3xl font-bold">{post.title}</h1>
       {post.date && <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{post.date}</p>}
