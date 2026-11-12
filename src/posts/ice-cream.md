@@ -1,5 +1,5 @@
 ---
-title: Double Dinner
+title: 20 Boxes of Ice Cream
 date: 2026-10-11
 tags: life, cooking, facts
 ---
